@@ -17,6 +17,8 @@
     "url": "https://github.com/jojo42600/ComplainApp/issues"
   },
   "homepage": "https://github.com/jojo42600/ComplainApp#readme",
+  "author": "Joe Ford",
+  "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
