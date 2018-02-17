@@ -1,17 +1,26 @@
-const http = require('http');
-const fs = require('fs');
+var express = require('express');
+var bodyParser = require('body-parser');
+// UNCOMMENT THE DATABASE YOU'D LIKE TO USE
+// var items = require('../database-mysql');
+var items = require('../database-mongo');
 
-const hostname = '127.0.0.1';
+var app = express();
 
-const port = 3000;
 
-const server = http.createServer ((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-type', 'text/plain');
- // res.write(html);
-  res.end('Hello Woddrld!')
+app.use(express.static(__dirname + '/../react-client/dist'));
+//we do this so we can send our html stati files to the browser through the server
+
+/*app.get('/items', function (req, res) {
+  items.selectAll(function(err, data) {
+    if(err) {
+      res.sendStatus(500);
+    } else {
+      res.json(data);
+    }
+  });
+});
+*/
+app.listen(3000, function() {
+  console.log('listening on port 3000!');
 });
 
-server.listen(port, hostname, () =>{
-  console.log('Server started on port' + port);
-})
