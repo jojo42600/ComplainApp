@@ -4,6 +4,7 @@
   "description": "ComplainApp",
   "main": "index.js",
   "scripts": {
+    "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
     "react-dev": "webpack -d --watch",
     "start": "nodemon --inspect server/index.js"
   },
