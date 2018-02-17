@@ -13,8 +13,8 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 
 app.get('/', function(req,res){
-  resonse.render("testing")
-})
+  res.send("Welome to Joe's app under Construction")
+});
 
 //app.get('/get/all', (request, response) =>)
 
