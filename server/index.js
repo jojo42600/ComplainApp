@@ -6,9 +6,15 @@ var items = require('../database-mongo');
 
 var app = express();
 
+app.set('port'), (process.env.PORT || 5000 )
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 //we do this so we can send our html stati files to the browser through the server
+
+
+app.get('/', function(req,res){
+  resonse.render("testing")
+})
 
 //app.get('/get/all', (request, response) =>)
 
@@ -26,8 +32,8 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 
 
 
-app.listen(process.env.port ||3000, function() {
-  console.log('listening on port 3000!');
+app.listen(app.get('port'), function() {
+  console.log('listening on port:', app.get('port'));
 });
 
 
