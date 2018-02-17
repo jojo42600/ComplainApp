@@ -26,7 +26,7 @@ app.use(function (err, req, res, next){
   res.status(err.status || 500);
 });
 
-app.get('/items', function (req, res) {
+/*app.get('/items', function (req, res) {
   items.selectAll(function(err, data) {
     if(err) {
       res.sendStatus(500);
@@ -35,7 +35,7 @@ app.get('/items', function (req, res) {
     }
   });
 });
-
+*/
 app.post('/', function (req, res) {
   res.send('Got a POST request')
 })
