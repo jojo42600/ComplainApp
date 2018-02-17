@@ -16,7 +16,7 @@ var itemSchema = mongoose.Schema({
   name: String,
   complaint: String,
   age: Number
- // date: {type: Date, default: Date.now}
+ // date: {type: Date, default: Date.now}//
 });
 
 var Item = module.exports = mongoose.model('Item', itemSchema);
