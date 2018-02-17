@@ -6,10 +6,20 @@ var items = require('../database-mongo');
 
 var app = express();
 
+//view engine setup
+app.set('view engine', 'html');
+app.engine('html', function (path, options, callbacks){
+  fs.readFile(path, 'utf-8', callback);
+});
 
+
+// middleware to connect to bundle.js
 app.use(express.static(__dirname + '/../react-client/dist'));
 //we do this so we can send our html stati files to the browser through the server
 
+app.get('/', function (res, req){
+  res.sendFile(path.join(__dirname, '../react-client/dist', 'index1.html'))
+})
 
 
 
