@@ -21,7 +21,7 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 //  res.sendFile(path.join(__dirname, '../react-client/dist', 'index.html'))
 //})
 
-// error handler //
+/// error handler //
 app.use(function (err, req, res, next){
   res.status(err.status || 500);
 });
