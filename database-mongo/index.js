@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/fetcher');
 
 var db = mongoose.connection;
 
@@ -12,11 +12,17 @@ db.once('open', function() {
 });
 
 var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+  name: String,
+  complaint: String,
+  age: Number
+ // date: {type: Date, default: Date.now}
 });
 
 var Item = mongoose.model('Item', itemSchema);
+
+
+
+
 
 var selectAll = function(callback) {
   Item.find({}, function(err, items) {
