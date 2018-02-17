@@ -2,15 +2,15 @@ var express = require('express');
 var bodyParser = require('body-parser');
 // UNCOMMENT THE DATABASE YOU'D LIKE TO USE
 // var items = require('../database-mysql');
-//var items = require('../database-mongo');
+var items = require('../database-mongo');
 
 var app = express();
 
 //view engine setup
-app.set('view engine', 'html');
-app.engine('html', function (path, options, callbacks){
-  fs.readFile(path, 'utf-8', callback);
-});
+//app.set('view engine', 'html');
+//app.engine('html', function (path, options, callbacks){
+//  fs.readFile(path, 'utf-8', callback);
+//});
 
 
 // middleware to connect to bundle.js

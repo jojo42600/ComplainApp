@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class newMessage extends React.Component {
+class NewMessage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: 'Enter complaint here.'};
+    this.state = {
+      alias: '',
+      complaint: '',
+      age: 10
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,7 +19,7 @@ class newMessage extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('Complaint received, have a nice day =)!';
+    alert('Complaint received, have a nice day!');
     event.preventDefault();
   }
 
@@ -23,11 +27,20 @@ class newMessage extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Complaint:
-          <textarea value={this.state.value} onChange={this.handleChange} />
+          Name:
+          <input name="alias" type= "text" value={this.state.alias} onChange={this.handleChange} />
+        </label>
+        <label>
+          Age:
+          <input name="age" type= "number" value={this.state.age} onChange={this.handleChange} />
+        </label>
+        <label>
+
+        Complaint:
+          <textarea value={this.state.complaint} onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
-        <button onCLick={console.log("button clicked")}
+
       </form>
     );
   }
@@ -35,3 +48,4 @@ class newMessage extends React.Component {
 
 
 
+export default NewMessage;

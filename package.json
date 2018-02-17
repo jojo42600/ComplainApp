@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "ComplainApp",
   "main": "index.js",
+    "engines": {
+    "node": "8.9.4",
+    "npm": "5.6.0"
+  },
   "scripts": {
     "heroku-postbuild": "webpack -p --config ./webpack.config.js --progress",
     "react-dev": "webpack -d --watch",
@@ -35,10 +39,8 @@
     "mysql": "^2.13.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
-  },
-  "engines": {
-    "node": "8.9.4"
   }
+
 
 
 
