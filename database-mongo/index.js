@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher');
+mongoose.connect('mongodb://localhost/itemdb');
 
 var db = mongoose.connection;
 
@@ -18,7 +18,7 @@ var itemSchema = mongoose.Schema({
  // date: {type: Date, default: Date.now}
 });
 
-var Item = mongoose.model('Item', itemSchema);
+var Item = module.exports = mongoose.model('Item', itemSchema);
 
 
 
@@ -35,3 +35,4 @@ var selectAll = function(callback) {
 };
 
 module.exports.selectAll = selectAll;
+
