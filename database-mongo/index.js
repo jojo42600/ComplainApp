@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI ||'mongodb://localhost/itemdb',
-  {useMongoClient: true});;
+mongoose.connect('mongodb://localhost/itemdb')
+
+
 
 var db = mongoose.connection;
 
@@ -19,14 +20,29 @@ var itemSchema = mongoose.Schema({
  // date: {type: Date, default: Date.now}//
 });
 
-var Item = module.exports = mongoose.model('Item', itemSchema);
+var item = module.exports = mongoose.model('item', itemSchema);
+
+
+ //let save = ( ) => {}
+//New ITEM ({name: , complaint: ,age: }).save()
+
+
+
+var testInsert = function(NAME,COMPLAINT,AGE){
+  db.item.insert({
+    name: NAME || "tester face",
+    complaint: COMPLAINT || "testy complaint",
+    age: AGE || 999
+  })
+  console.log(NAME + COMPLAINT + AGE + 'added to' + db.item)
+}
 
 
 
 
 
 var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
+  item.find({}, function(err, items) {
     if(err) {
       callback(err, null);
     } else {
@@ -35,5 +51,7 @@ var selectAll = function(callback) {
   });
 };
 
+
 module.exports.selectAll = selectAll;
+module.exports.testInsert = testInsert
 

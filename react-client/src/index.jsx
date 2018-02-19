@@ -7,7 +7,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: "",
+      items: [],
+      entries:[]
     };
 
   }
@@ -15,8 +16,10 @@ class App extends React.Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/items',
+      method:"GET",
+      url: '/item',
       success: (data) => {
+        console.log(data)
         this.setState({
           items: data
         })
@@ -28,13 +31,13 @@ class App extends React.Component {
   }
 
   render () {
-    return (<div>
-
+    return (<div style={{ textAlign: 'center'}}>
       <h1>Complaint Board</h1>
+      <NewMessage onSubmit={this.handleSubmit}/>
 
-      <NewMessage/>
     </div>)
   }
 }
-//<List items={this.state.items} || dog/>
 ReactDOM.render(<App />, document.getElementById('app'));
+
+  //    <list item={this.state.items}/>

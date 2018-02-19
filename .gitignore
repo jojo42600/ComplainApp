@@ -1,7 +1,7 @@
 ### node etc ###
 
 node_modules
-
+keys.js
 # Logs
 logs
 *.log
